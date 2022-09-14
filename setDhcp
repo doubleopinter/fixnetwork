@@ -1,0 +1,7 @@
+#!/bin/sh
+
+printf "network:\n  renderer: networkd\n  version: 2\n  ethernets:\n    eth:\n      match:\n        name: en*\n      dhcp4: true" > /etc/netplan/rescue.yaml
+netplan generate
+netplan apply
+
+ip a
